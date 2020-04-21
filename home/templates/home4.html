@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Seja bem vindo {% endblock %}
+
+{% block main %}
+
+
+    <div class="row">
+        <div class="col">
+
+        </div>
+
+        <div class="col-6">
+            <h1>Chamada pelo method=GET</h1>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Enviar</button>
+        </form>
+
+
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Desenvolvimento web com Django 2.x</span>
+      </div>
+    </footer>
+{% endblock %}

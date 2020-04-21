@@ -1,0 +1,26 @@
+<body>
+<h1>{{ object }}</h1>
+<p>{{ object.bio }}</p>
+<p>Age: {{ object.age }}</p>
+<p>Salary: {{ object.salary }}</p>
+<p>Documento: {{ object.doc }}</p>
+
+<h2>Vendas</h2>
+{% for venda in vendas %}
+    <p>Venda: {{ venda.numero }}</p>
+    <h3>Lista de Produtos</h3>
+    <ul>
+        {% for produto in venda.produtos.all %}
+            <li> {{ produto.id }} - {{ produto.descricao }} </li>
+        {% empty %}
+            <li>Nenhum produto ainda.</li>
+        {% endfor %}
+    </ul>
+{% empty %}
+    <li>Nenhuma venda ainda.</li>
+{% endfor %}
+<p> Date {{ now|date }}</p>
+
+<a href="{% url 'person_update_cbv' object.id %}">Editar</a><br></br>
+<a href="{% url 'person_delete_cbv' object.id %}">Excluir</a>
+</body>

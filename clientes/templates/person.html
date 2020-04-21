@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load meusfiltros %}
 
 {% block title %} Administracao {% endblock %}
 
@@ -15,24 +15,26 @@
             <ul class="list-group">
                 {% for person in persons %}
                     <li class="list-group-item">
-                        <a href="{% url 'persons_update' person.id %}">{{ person.first_name }}</a>
+                        <a href="{% url 'persons_update' person.id %}">{{ person.nome_completo|title }}</a>
                         <a href="{% url 'persons_delete' person.id %}" class="trash-item">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
                     </li>
-
+                {% empty %}
+                    Nenhum cliente cadastrado!
                 {% endfor %}
             </ul>
 
             <br>
 
             <a href="{% url 'person_new' %}" class="btn btn-primary"> Novo cliente</a>
+            <a href="{% url 'person_list_cbv' %}" class="btn btn-primary"> Nova List</a>
 
         </div>
 
         <div class="col">
             {% if user.is_authenticated %}
-                <p>Ola {{user.username }}
+                <p>Ola {{ user.username|upper }}
                     <a href="{% url 'logout' %}">
                         <span class="badge badge-dark">Sair</span>
                     </a>
@@ -41,14 +43,21 @@
             {% endif %}
         </div>
     </div>
-
+    </br>
+    {{ 1234444323.349|arredonda:2 }}
+    </br>
+    {{ 1234444323.349|moeda:2 }}
+    </br>
+    {% if persons|length >= 3 %}
+    Você já tem muitos clientes! Parabéns!
+    {% endif %}
+    </br>   
+    {% filter force_escape|lower %}
+    This text will be HTML-escaped, and will appear in all lowercase.
+    {% endfilter %}
 
 {% endblock %}
 
 {% block footer %}
-    <footer class="footer">
-      <div class="container">
-        <span class="text-muted">Desenvolvimento web com Django 2.x</span>
-      </div>
-    </footer>
+    {% include 'clientes/footer.html' %}
 {% endblock %}

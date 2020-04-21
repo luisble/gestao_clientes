@@ -1,0 +1,15 @@
+<body>
+<h1>Listagem de Pessoas</h1>
+
+</* O Django sempre vai sempre criar uma variavel chamada object_list */>
+
+<ul>
+{% for person in object_list %}
+    <li> Detail <a href="{% url 'person_detail' person.id %}"> {{ person }} </a></li>
+{% empty %}
+    <li>Nenhuma pessoa ainda.</li>
+{% endfor %}
+
+</ul>
+<a href="{% url 'person_create' %}"> Novo cliente</a>
+</body>

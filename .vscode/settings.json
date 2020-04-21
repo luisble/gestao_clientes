@@ -1,0 +1,17 @@
+{
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "C:\\Users\\mtzcpd317\\Google Drive\\Desenv\\Python\\djangoadv\\venv\\Scripts\\python.exe",
+    "todohighlight.isEnable": true,
+    "todohighlight.include":[
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.py",
+        "**/*.tsx",
+        "**/*.html",
+        "**/*.sql",
+        "**/*.php",
+        "**/*.css",
+        "**/*.scss"
+    ],		
+}

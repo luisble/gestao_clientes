@@ -1,0 +1,8 @@
+<form method="post">{% csrf_token %}
+    <p>Tem certeza que deseja excluir o cliente "{{ object }}"?</p>
+    <input type="submit" value="Confirmar" />
+    <input type="button" value="Voltar" onclick="history.go(-1)" />
+</form>
+{% block footer %}
+    {% include 'clientes/footer.html' %}
+{% endblock %}
